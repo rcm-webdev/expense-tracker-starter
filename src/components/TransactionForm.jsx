@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function AddTransaction({ onAdd, categories }) {
+function TransactionForm({ onAdd, categories }) {
   const [description, setDescription] = useState("")
   const [amount, setAmount] = useState("")
   const [type, setType] = useState("expense")
@@ -58,4 +58,4 @@ function AddTransaction({ onAdd, categories }) {
   )
 }
 
-export default AddTransaction
+export default TransactionForm

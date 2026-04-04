@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Summary from './components/Summary'
-import AddTransaction from './components/AddTransaction'
+import TransactionForm from './components/TransactionForm'
 import TransactionList from './components/TransactionList'
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
 
       <Summary totalIncome={totalIncome} totalExpenses={totalExpenses} balance={balance} />
 
-      <AddTransaction onAdd={handleAdd} categories={categories} />
+      <TransactionForm onAdd={handleAdd} categories={categories} />
 
       <TransactionList transactions={transactions} categories={categories} />
     </div>
