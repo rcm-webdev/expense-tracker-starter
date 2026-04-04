@@ -139,10 +139,10 @@ th {
 }
 
 .delete-btn {
-  padding: 4px 10px;
-  background: #eee;
-  border: 1px solid #ccc;
+  padding: 8px 20px;
+  background: #333;
+  color: #fff;
+  border: none;
   cursor: pointer;
-  font-size: 12px;
-  color: #333;
+  font-size: 14px;
 }

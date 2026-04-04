@@ -53,7 +53,7 @@ export default function TransactionList({ transactions, categories, onDelete }) 
                 {t.type === "income" ? "+" : "-"}${t.amount}
               </td>
               <td>
-                <button onClick={() => handleDelete(t.id)}>Delete</button>
+                <button className="delete-btn" onClick={() => handleDelete(t.id)}>Delete</button>
               </td>
             </tr>
           ))}
