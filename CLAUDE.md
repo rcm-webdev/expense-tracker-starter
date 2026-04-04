@@ -18,7 +18,7 @@ The app is split across `src/App.jsx` and three components in `src/components/`.
 **Components:**
 - `App` — owns `transactions` state, computes totals, passes data down via props
 - `Summary` — displays total income, expenses, and balance; purely presentational
-- `AddTransaction` — owns form state (`description`, `amount`, `type`, `category`); calls `onAdd(newTransaction)` prop on submit
+- `TransactionForm` — owns form state (`description`, `amount`, `type`, `category`); calls `onAdd(newTransaction)` prop on submit
 - `TransactionList` — owns filter state (`filterType`, `filterCategory`); receives `transactions` prop and filters inline during render
 
 **Key state in `App`:**
