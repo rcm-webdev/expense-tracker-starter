@@ -13,12 +13,17 @@ npm run preview  # Preview production build
 
 ## Architecture
 
-This is a single-file React app — all state and UI logic lives in `src/App.jsx`. There are no separate components, no routing, and no external state management.
+The app is split across `src/App.jsx` and three components in `src/components/`. There is no routing and no external state management.
+
+**Components:**
+- `App` — owns `transactions` state, computes totals, passes data down via props
+- `Summary` — displays total income, expenses, and balance; purely presentational
+- `AddTransaction` — owns form state (`description`, `amount`, `type`, `category`); calls `onAdd(newTransaction)` prop on submit
+- `TransactionList` — owns filter state (`filterType`, `filterCategory`); receives `transactions` prop and filters inline during render
 
 **Key state in `App`:**
-- `transactions` — array of `{ id, description, amount, type, category, date }`. `amount` is stored as a string (not a number), which causes incorrect totals — a known bug in this starter.
-- `filterType` / `filterCategory` — control which transactions are shown in the table.
+- `transactions` — array of `{ id, description, amount, type, category, date }`. `amount` is stored as a number (`parseFloat`).
 
-**Data flow:** transactions are filtered inline during render (no memoization), totals are computed by reducing `transactions` directly.
+**Data flow:** `App` computes `totalIncome`, `totalExpenses`, and `balance` by reducing `transactions`. Filtering lives inside `TransactionList`. No memoization.
 
 There is no persistence — state resets on page reload.
