@@ -28,7 +28,7 @@ function SpendingChart({ categoryTotals = [] }) {
               <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
-          <Tooltip formatter={(value) => `$${value}`} />
+          <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
           <Legend />
         </PieChart>
       </ResponsiveContainer>
