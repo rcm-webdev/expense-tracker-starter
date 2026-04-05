@@ -3,6 +3,7 @@ import './App.css'
 import Summary from './components/Summary'
 import TransactionForm from './components/TransactionForm'
 import TransactionList from './components/TransactionList'
+import SpendingChart from './components/SpendingChart'
 
 function App() {
   const [transactions, setTransactions] = useState([
@@ -28,6 +29,15 @@ function App() {
 
   const balance = totalIncome - totalExpenses;
 
+  const categoryTotals = categories
+    .map(cat => ({
+      name: cat,
+      value: transactions
+        .filter(t => t.type === 'expense' && t.category === cat)
+        .reduce((sum, t) => sum + t.amount, 0),
+    }))
+    .filter(entry => entry.value > 0);
+
   const handleAdd = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
   };
@@ -44,6 +54,8 @@ function App() {
       <Summary totalIncome={totalIncome} totalExpenses={totalExpenses} balance={balance} />
 
       <TransactionForm onAdd={handleAdd} categories={categories} />
+
+      <SpendingChart categoryTotals={categoryTotals} />
 
       <TransactionList transactions={transactions} categories={categories} onDelete={handleDelete} />
     </div>
