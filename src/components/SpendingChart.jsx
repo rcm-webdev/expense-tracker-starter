@@ -2,7 +2,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recha
 
 const COLORS = ['#6366f1', '#ec4899', '#f59e0b', '#10b981', '#3b82f6', '#f97316', '#8b5cf6'];
 
-function SpendingChart({ categoryTotals }) {
+function SpendingChart({ categoryTotals = [] }) {
   if (categoryTotals.length === 0) {
     return (
       <div className="chart-section">
