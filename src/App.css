@@ -1,132 +1,234 @@
+/* ===========================
+   NEO BRUTALISM — EXPENSE TRACKER
+   =========================== */
+
 .app {
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 32px 20px 60px;
 }
 
+/* --- Header --- */
+
 h1 {
-  margin-bottom: 4px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
 .subtitle {
-  margin-bottom: 20px;
-  color: #666;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
+/* --- Summary Cards --- */
 
 .summary {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
 .summary-card {
   flex: 1;
-  border: 1px solid #ddd;
-  padding: 14px;
+  border: 3px solid #000;
+  padding: 18px 16px;
   background: #fff;
+  box-shadow: 5px 5px 0 #000;
+  position: relative;
+}
+
+.summary-card:nth-child(1) {
+  background: #CCFBE3;
+}
+
+.summary-card:nth-child(2) {
+  background: #FFD4D4;
+}
+
+.summary-card:nth-child(3) {
+  background: #FFE500;
 }
 
 .summary-card h3 {
-  font-size: 13px;
-  color: #888;
-  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 8px;
 }
 
 .income-amount {
-  color: green;
-  font-size: 20px;
-  font-weight: bold;
+  color: #006B3C;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .expense-amount {
-  color: red;
-  font-size: 20px;
-  font-weight: bold;
+  color: #C0392B;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .balance-amount {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Archivo Black', sans-serif;
+  color: #000;
 }
 
+/* --- Add Transaction Form --- */
+
 .add-transaction {
-  border: 1px solid #ddd;
-  padding: 16px;
+  border: 3px solid #000;
+  padding: 20px;
   margin-bottom: 24px;
   background: #fff;
+  box-shadow: 5px 5px 0 #000;
 }
 
 .add-transaction h2 {
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
 }
 
 form {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 form input,
 form select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  padding: 10px 12px;
+  border: 3px solid #000;
+  font-size: 13px;
+  font-family: 'Space Mono', monospace;
+  background: #FFFCF0;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: 3px 3px 0 #000;
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+form input:focus,
+form select:focus {
+  background: #fff;
+  box-shadow: 4px 4px 0 #000;
+  transform: translate(-1px, -1px);
 }
 
 form input[type="text"] {
   flex: 2;
+  min-width: 140px;
 }
 
 form input[type="number"] {
   flex: 1;
+  min-width: 80px;
 }
 
 form select {
   flex: 1;
+  min-width: 100px;
+  cursor: pointer;
 }
 
 form button {
-  padding: 8px 20px;
-  background: #333;
-  color: #fff;
-  border: none;
+  padding: 10px 22px;
+  background: #FFE500;
+  color: #000;
+  border: 3px solid #000;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.1s, box-shadow 0.1s;
+  white-space: nowrap;
 }
 
+form button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+form button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* --- Chart Section --- */
+
 .chart-section {
-  border: 1px solid #ddd;
-  padding: 16px;
+  border: 3px solid #000;
+  padding: 20px;
   margin-bottom: 24px;
   background: #fff;
+  box-shadow: 5px 5px 0 #000;
 }
 
 .chart-section h2 {
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
 }
 
+/* --- Transactions Section --- */
+
 .transactions {
+  border: 3px solid #000;
+  padding: 20px;
   margin-bottom: 24px;
+  background: #fff;
+  box-shadow: 5px 5px 0 #000;
 }
 
 .transactions h2 {
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
 }
 
 .filters {
   display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .filters select {
-  padding: 6px;
-  border: 1px solid #ccc;
-  font-size: 13px;
+  padding: 8px 12px;
+  border: 3px solid #000;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  background: #FFFCF0;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
 }
+
+/* --- Table --- */
 
 table {
   width: 100%;
@@ -134,27 +236,67 @@ table {
 }
 
 thead {
-  background: #f5f5f5;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 14px;
+  background: #000;
+  color: #FFE500;
 }
 
 th {
-  font-size: 12px;
-  color: #888;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #FFE500;
+  border-bottom: 3px solid #000;
 }
 
-.delete-btn {
-  padding: 8px 20px;
-  background: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+td {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 13px;
+  border-bottom: 2px solid #000;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #FFFCF0;
+}
+
+/* Color-code amount cells */
+td .income-amount {
   font-size: 14px;
+}
+
+td .expense-amount {
+  font-size: 14px;
+}
+
+/* --- Delete Button --- */
+
+.delete-btn {
+  padding: 6px 14px;
+  background: #FF3B3B;
+  color: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.delete-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
+}
+
+.delete-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
 }
