@@ -1,8 +1,11 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import ConfirmModal from "./ConfirmModal";
 
 export default function TransactionList({ transactions, categories, onDelete }) {
   const [filterType, setFilterType] = useState("all");
   const [filterCategory, setFilterCategory] = useState("all");
+  const [pendingDeleteId, setPendingDeleteId] = useState(null);
 
   const filteredTransactions = transactions.filter(t => {
     const matchesType = filterType === "all" || t.type === filterType;
@@ -10,14 +13,24 @@ export default function TransactionList({ transactions, categories, onDelete }) 
     return matchesType && matchesCategory;
   });
 
-  function handleDelete(id) {
-    if (window.confirm("Are you sure you want to delete this transaction?")) {
-      onDelete(id);
-    }
+  const pendingTransaction = transactions.find(t => t.id === pendingDeleteId);
+
+  function handleConfirmDelete() {
+    onDelete(pendingDeleteId);
+    toast.error(`"${pendingTransaction.description}" deleted.`);
+    setPendingDeleteId(null);
   }
 
   return (
     <div className="transactions">
+      {pendingTransaction && (
+        <ConfirmModal
+          transaction={pendingTransaction}
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setPendingDeleteId(null)}
+        />
+      )}
+
       <h2>Transactions</h2>
       <div className="filters">
         <select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
@@ -53,7 +66,9 @@ export default function TransactionList({ transactions, categories, onDelete }) 
                 {t.type === "income" ? "+" : "-"}${t.amount}
               </td>
               <td>
-                <button className="delete-btn" onClick={() => handleDelete(t.id)}>Delete</button>
+                <button className="delete-btn" onClick={() => setPendingDeleteId(t.id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
