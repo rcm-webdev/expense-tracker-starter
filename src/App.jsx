@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Toaster } from 'react-hot-toast'
 import './App.css'
 import Summary from './components/Summary'
 import TransactionForm from './components/TransactionForm'
@@ -48,6 +49,33 @@ function App() {
 
   return (
     <div className="app">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            fontFamily: "'Space Mono', monospace",
+            fontWeight: '700',
+            fontSize: '13px',
+            border: '3px solid #000',
+            boxShadow: '4px 4px 0 #000',
+            borderRadius: '0',
+            background: '#FFE500',
+            color: '#000',
+          },
+          success: {
+            iconTheme: { primary: '#000', secondary: '#FFE500' },
+          },
+          error: {
+            style: {
+              background: '#FF3B3B',
+              color: '#fff',
+              border: '3px solid #000',
+              boxShadow: '4px 4px 0 #000',
+            },
+            iconTheme: { primary: '#fff', secondary: '#FF3B3B' },
+          },
+        }}
+      />
       <h1>Finance Tracker</h1>
       <p className="subtitle">Track your income and expenses</p>
 
